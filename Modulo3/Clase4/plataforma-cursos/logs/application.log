@@ -1,0 +1,6 @@
+2026-02-07 17:13:14 INFO  CursoService:17 - CursoService initialized
+2026-02-07 17:13:14 INFO  InscripcionService:21 - InscripcionService initialized
+2026-02-07 17:13:14 INFO  CursoService:22 - Adding curso: Java Básico
+2026-02-07 17:13:14 INFO  CursoService:22 - Adding curso: Python Intermedio
+2026-02-07 17:13:14 INFO  InscripcionService:34 - Estudiante Juan Pérez inscrito en el curso Java Básico
+2026-02-07 17:13:14 INFO  InscripcionService:34 - Estudiante María Gómez inscrito en el curso Python Intermedio

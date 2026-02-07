@@ -28,7 +28,7 @@ public class CursoService {
         return cursos;
     }
 
-    public Curso buscarCursoPorCodigo(String codigo){
+    public Curso buscarCursoPorCodigo(String codigo) throws CursoLlenoException {
         for(Curso curso : cursos){
             if(curso.getCodigo().equals(codigo)){
                 logger.info("Curso found: " + curso.getNombre());
