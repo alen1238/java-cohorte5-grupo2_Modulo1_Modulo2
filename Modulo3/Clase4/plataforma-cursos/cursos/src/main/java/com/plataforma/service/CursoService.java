@@ -23,7 +23,7 @@ public class CursoService {
         cursos.add(curso);
     }
 
-    public List<Curso> getCursos() {
+    public List<Curso> listarCursos() {
         logger.info("Retrieving list of cursos");
         return cursos;
     }

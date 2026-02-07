@@ -6,15 +6,25 @@ import java.util.List;
 public class Curso {
     private String nombre;
     private String codigo;
-    private int capcidad;
+    private int capacidad;
     private List<Estudiante> estudiantes;
 
     public Curso(String nombre, String codigo, int capcidad) {
         this.nombre = nombre;
         this.codigo = codigo;
-        this.capcidad = capcidad;
+        this.capacidad = capcidad;
         this.estudiantes = new ArrayList<>();
     }
+
+        public void agregarEstudiante(Estudiante estudiante) {
+            if (!estaLleno()) {
+                estudiantes.add(estudiante);
+            }
+        }
+
+        public void eliminarEstudiante(Estudiante estudiante) {
+            estudiantes.remove(estudiante);
+        }
 
     public String getNombre() {
         return nombre;
@@ -28,12 +38,16 @@ public class Curso {
         return codigo;
     }
 
-    public int getCapcidad() {
-        return capcidad;
+    public int getCapacidad() {
+        return capacidad;
     }
 
     public List<Estudiante> getEstudiantes() {
         return estudiantes;
+    }
+
+    public boolean estaLleno() {
+        return estudiantes.size() >= capacidad;
     }
 
     @Override
@@ -41,7 +55,7 @@ public class Curso {
         return "Curso{" +
                 "nombre='" + nombre + '\'' +
                 ", codigo='" + codigo + '\'' +
-                ", capcidad=" + capcidad +
+                ", capacidad=" + capacidad +
                 ", estudiantes=" + estudiantes +
                 '}';
     }
