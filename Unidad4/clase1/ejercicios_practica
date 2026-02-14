@@ -1,0 +1,42 @@
+# PROYECTO 1 — LIST  
+## Registro de Asistencia por Orden de Llegada
+
+### Enunciado
+
+Una institución necesita un sistema que registre los nombres de los estudiantes en el orden exacto en que llegan al aula.  
+Un estudiante puede llegar tarde y volver a entrar, por lo que puede aparecer más de una vez en el registro.
+
+### El sistema debe permitir:
+
+- Registrar estudiantes conforme llegan.  
+- Mostrar la lista completa en orden.  
+- Consultar quién llegó en una posición específica.
+
+
+# PROYECTO 2 — SET  
+## Sistema de Correos Únicos Registrados
+
+### Enunciado
+
+Una plataforma educativa necesita registrar los correos electrónicos de los estudiantes.  
+Un correo no puede registrarse más de una vez, sin importar cuántas veces se intente.
+
+### El sistema debe:
+
+- Registrar correos.  
+- Evitar duplicados automáticamente.  
+- Verificar si un correo ya existe.
+
+# PROYECTO 3 — MAP  
+## Agenda de Estudiantes y Notas Finales
+
+### Enunciado
+
+Un docente necesita un sistema donde pueda asociar el nombre de cada estudiante con su nota final.  
+Cada estudiante tiene una única nota, y esta puede ser consultada usando su nombre.
+
+### El sistema debe:
+
+- Registrar nombre y nota.  
+- Consultar la nota de un estudiante.  
+- Actualizar la nota si es necesario.
