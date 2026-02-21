@@ -1,3 +1,7 @@
 {
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.project.sourcePaths": [
+        "Clase3/Ejercicios/EjercicioIntegrador/IntegracionConceptos/src",
+        "Unidad4/clase2/ejemplos_parte2/alara/src/main/java/com/devsenior"
+    ]
 }
