@@ -17,8 +17,13 @@ public class Main {
         //ejemploGroupingByConParametros(productos);
        //  ejemploSumingInt(productos);
         //ejemploGroupingBySummingInt(productos);
-        ejemploSummarizingInt(productos);
-   }
+       // ejemploSummarizingInt(productos);
+       //ejemploGroupingBySummarizingInt(productos);
+     //ejemploPartitioningBy(productos);
+      //  ejemploPartitioningByCount(productos);
+     // ejemploPartitioningByAcumulado(productos);
+        ejemploPartitioningByStats(productos);
+    }
 
    public static void ejemploGroupingBy(List<Producto> productos) {
           var resultado = productos.stream() //pipelines son métodos sucesivos que se pasan valores unos a otros
@@ -64,7 +69,80 @@ public class Main {
 
 
    public static void ejemploSummarizingInt(List<Producto> productos) {
+      var resultado =  productos.stream()
+                .collect(Collectors.summarizingInt(Producto::getPrecio));
+
+        System.out.println("cantidad: " + resultado.getCount());
+        System.out.println("Suma: " + resultado.getSum());
+        System.out.println("Min: " + resultado.getMin());
+        System.out.println("Max: " + resultado.getMax());
+        System.out.println("promedio: " + resultado.getAverage());
+   }
+
+   public static void ejemploGroupingBySummarizingInt(List<Producto> productos) {
+        var resultado = productos.stream()  
+                                .collect(Collectors.groupingBy(Producto::getCategoria,
+                                        Collectors.summarizingInt(Producto::getPrecio)
+                                ));
+        resultado.forEach((k,v)->{
+            System.out.println("categoria: " + k);
+            System.out.println("Total: " + v.getSum());
+            System.out.println("Promedio: " + v.getAverage());
+        });
+   }
+
+   public static void ejemploPartitioningBy(List<Producto> productos) {
+        // Map<Boolean, List<T>>
+       var resultado = productos.stream()
+                    .collect(Collectors.partitioningBy(p-> p.getPrecio() >= 700));
         
+                    resultado.forEach((k,v)->{
+            System.out.println("Es mayor o igual a 700: " + k);
+            v.forEach(p-> System.out.println(p.getNombre()));
+        });
+
+        //imprimiendo separadamente true y false
+        System.out.println("Productos costosos");
+        resultado.get(true)
+                    .forEach(p -> System.out.println(p.getNombre()));
+        
+                    System.out.println("Productos baratos");
+        resultado.get(false)
+                    .forEach(p-> System.out.println(p.getNombre()));
+
+   }
+
+   public static void ejemploPartitioningByCount(List<Producto> productos) {
+       var resultado =  productos.stream()
+                                .collect(Collectors.partitioningBy(p -> p.getPrecio() >500,
+                                Collectors.counting()));
+        
+            System.out.println("cantidad caros: " + resultado.get(true));
+            System.out.println("cantidad baratos: " + resultado.get(false));
+   }
+
+   public static void ejemploPartitioningByAcumulado(List<Producto> productos){
+        var resultado = productos.stream()  
+                                .collect(Collectors.partitioningBy(p-> p.getPrecio() > 500,
+                                        Collectors.summingInt(Producto::getPrecio)));
+        
+    
+            System.out.println("Total productos caros: " + resultado.get(true));
+            System.out.println("Total productos baratos: " + resultado.get(false));
+        
+   }
+
+   public static void ejemploPartitioningByStats(List<Producto> productos) {
+        var resultado = productos.stream()  
+                                .collect(Collectors.partitioningBy(p-> p.getPrecio() > 500,
+                                        Collectors.summarizingInt(Producto::getPrecio)));
+        
+        resultado.forEach((k,v)->{
+            System.out.println("Costoso: " + k);
+            System.out.println("Cantidad: " + v.getCount());
+            System.out.println("Total: " + v.getSum());
+            System.out.println("Promedio: " + v.getAverage());
+        });
    }
 
 }
