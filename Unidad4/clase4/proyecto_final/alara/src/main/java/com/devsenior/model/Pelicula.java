@@ -42,7 +42,7 @@ public class Pelicula {
 
     @Override
     public String toString() {
-        return "Pelicula [titulo=" + titulo + ", genero=" + genero + "]";
+        return "[titulo=" + titulo + ", genero=" + genero + "]";
     }
 
     
